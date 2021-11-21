@@ -1,0 +1,13 @@
+//
+//  ChecklistItem.swift
+//  Checklists
+//
+//  Created by Pandos on 21.11.2021.
+//
+
+import Foundation
+
+class ChecklistItem {
+    var text = ""
+    var checked = false
+}
