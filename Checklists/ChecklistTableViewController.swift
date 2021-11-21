@@ -56,9 +56,8 @@ class ChecklistTableViewController: UITableViewController {
 //        Cоздаем константу которая равна объекту массива ChecklistItem по индексу, соответствующему номеру строки
 //        Когда у вас есть этот объект, вы можете просто просмотреть его текст и проверенные свойства и сделать все, что вам нужно.
         let item = items[indexPath.row]
-        let label = cell.viewWithTag(1000) as! UILabel
-        label.text = item.text
-        configureCheckmark(for: cell, at: indexPath)
+        configureText(for: cell, with: item)
+        configureCheckmark(for: cell, with: item)
         return cell
     }
     
@@ -67,63 +66,32 @@ class ChecklistTableViewController: UITableViewController {
             let item = items[indexPath.row]
             //метод toggle возвращает противоположное булевое значение
             item.checked.toggle()
-            configureCheckmark(for: cell, at: indexPath)
-        }
+            configureCheckmark(for: cell, with: item)        }
             tableView.deselectRow(at: indexPath, animated: true)
           }
         
-        func configureCheckmark( for cell: UITableViewCell,at indexPath: IndexPath) {
-            let item = items[indexPath.row]
-            if item.checked {
-                cell.accessoryType = .checkmark
-            } else {
-                cell.accessoryType = .none
-            }
+//        func configureCheckmark( for cell: UITableViewCell,at indexPath: IndexPath) {
+//            let item = items[indexPath.row]
+//            if item.checked {
+//                cell.accessoryType = .checkmark
+//            } else {
+//                cell.accessoryType = .none
+//            }
+//        }
+    // перепишем функцию на работу на прямую с элементами ChecklistItem
+    
+    func configureCheckmark(for cell: UITableViewCell, with item: ChecklistItem) {
+        if item.checked {
+           cell.accessoryType = .checkmark
+           } else {
+           cell.accessoryType = .none
         }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    //Функция добавления текста в лейбл ячейки по tag = 1000
+    func configureText(for cell: UITableViewCell, with item: ChecklistItem) {
+        let label = cell.viewWithTag(1000) as! UILabel
+        label.text = item.text
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
