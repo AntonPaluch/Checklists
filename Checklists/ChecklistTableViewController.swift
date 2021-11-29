@@ -8,6 +8,7 @@
 import UIKit
 
 class ChecklistTableViewController: UITableViewController {
+    
     var items = [ChecklistItem]()
 
     override func viewDidLoad() {
@@ -35,6 +36,8 @@ class ChecklistTableViewController: UITableViewController {
           items.append(item5)
         
         tableView.rowHeight = 50
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
 
     }
 
@@ -93,5 +96,22 @@ class ChecklistTableViewController: UITableViewController {
         let label = cell.viewWithTag(1000) as! UILabel
         label.text = item.text
     }
+    
+//  MARK: - Actions
+    
+    @IBAction func addItem() {
+        let newRowIndex = items.count
+        //создаем экземпляр класса и добавляем его в модель данных - массив items
+        let item = ChecklistItem()
+        item.text = "I am a new row"
+        item.checked = true
+        items.append(item)
+        
+        let indexPath = IndexPath(row: newRowIndex, section: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRows(at: indexPaths, with: .automatic)
+
+    }
+    
 
 }
