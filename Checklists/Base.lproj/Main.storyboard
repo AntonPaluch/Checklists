@@ -48,7 +48,7 @@
                     <navigationItem key="navigationItem" title="Checklists" id="2yr-oA-BTm">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xnj-vG-7Ao">
                             <connections>
-                                <action selector="addItem:" destination="myH-eS-Uxx" id="RCf-xW-jtj"/>
+                                <action selector="addItem" destination="myH-eS-Uxx" id="9zq-j3-DPj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
