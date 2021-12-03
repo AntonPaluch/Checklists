@@ -69,19 +69,20 @@
                             <tableViewSection id="1lB-wj-yql">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="JPH-FM-zhU">
-                                        <rect key="frame" x="0.0" y="18" width="414" height="19"/>
+                                        <rect key="frame" x="0.0" y="18" width="414" height="23.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JPH-FM-zhU" id="98Z-BF-xGs">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="19"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="23.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0zI-cx-J8V">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="19"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of the Item" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0zI-cx-J8V">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="23.5"/>
                                                     <color key="backgroundColor" red="0.240958375" green="1" blue="0.2566261064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" textContentType="name"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
-                                                        <outlet property="delegate" destination="SLp-wd-gSb" id="Fax-Dq-4cz"/>
+                                                        <action selector="done" destination="DfB-ec-hgN" eventType="editingDidEndOnExit" id="oBa-Yt-xS3"/>
+                                                        <outlet property="delegate" destination="DfB-ec-hgN" id="GAd-fs-ca9"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -107,13 +108,14 @@
                                 <action selector="cancel" destination="DfB-ec-hgN" id="EQe-3l-CtN"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Qtq-bm-mI2">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="Qtq-bm-mI2">
                             <connections>
                                 <action selector="done" destination="DfB-ec-hgN" id="roG-0d-COs"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="doneBarButton" destination="Qtq-bm-mI2" id="ywh-ay-pT1"/>
                         <outlet property="textField" destination="0zI-cx-J8V" id="PBX-e4-ZpV"/>
                     </connections>
                 </tableViewController>

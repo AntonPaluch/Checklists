@@ -11,21 +11,32 @@ class AddItemVC: UITableViewController {
     
     @IBOutlet weak var textField: UITextField!
     
-
+    @IBOutlet weak var doneBarButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
 
     }
-
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        textField.becomeFirstResponder()
+//    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        textField.becomeFirstResponder()
+    }
+    
+    
+    
+    
 // MARK: - Table View Delegates
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         return nil
     }
-    
-    
-    
     
 // MARK: - Actions
 
@@ -37,4 +48,27 @@ class AddItemVC: UITableViewController {
     print("Contents of the text field: \(textField.text!)")
     navigationController?.popViewController(animated: true)
   }
+}
+
+extension AddItemVC: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let oldText = textField.text!
+        let stringRange = Range(range, in: oldText)!
+        let newText = oldText.replacingCharacters(
+         in: stringRange,
+         with: string)
+//        if newText.isEmpty {
+//            doneBarButton.isEnabled = false
+//        } else {
+//            doneBarButton.isEnabled = true
+//        }
+        doneBarButton.isEnabled = !newText.isEmpty
+        return true
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        doneBarButton.isEnabled = false
+        return true
+    }
 }
