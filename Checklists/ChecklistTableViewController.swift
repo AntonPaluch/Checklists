@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChecklistTableViewController: UITableViewController {
+class ChecklistTableViewController: UITableViewController, AddItemViewControllerDelegate {
     
     var items = [ChecklistItem]()
 
@@ -103,6 +103,16 @@ class ChecklistTableViewController: UITableViewController {
         items.remove(at: indexPath.row)
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
+    }
+    
+// MARK: - Add Item ViewController Delegates
+    
+    func addItemViewControllerDidCancel(_ controller: AddItemVC) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func addItemViewController(_ controller: AddItemVC, didFinishAdding item: ChecklistItem) {
+        navigationController?.popViewController(animated: true)
     }
     
     
