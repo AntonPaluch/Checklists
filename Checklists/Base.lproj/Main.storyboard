@@ -18,14 +18,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="ChecklistItem" id="AJh-WT-Alt">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="21.5"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="21"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AJh-WT-Alt" id="OQF-hq-rAg">
-                                    <rect key="frame" x="0.0" y="0.0" width="373.5" height="21.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="373.5" height="21"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zp7-Cd-rdN">
-                                            <rect key="frame" x="20" y="0.0" width="353.5" height="21.5"/>
+                                            <rect key="frame" x="20" y="0.0" width="353.5" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -48,7 +48,7 @@
                     <navigationItem key="navigationItem" title="Checklists" id="2yr-oA-BTm">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xnj-vG-7Ao">
                             <connections>
-                                <segue destination="DfB-ec-hgN" kind="show" id="y5l-07-pXk"/>
+                                <segue destination="DfB-ec-hgN" kind="show" identifier="AddItem" id="y5l-07-pXk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -69,16 +69,16 @@
                             <tableViewSection id="1lB-wj-yql">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="JPH-FM-zhU">
-                                        <rect key="frame" x="0.0" y="18" width="414" height="23.5"/>
+                                        <rect key="frame" x="0.0" y="18" width="414" height="31"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JPH-FM-zhU" id="98Z-BF-xGs">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="23.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="31"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of the Item" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="0zI-cx-J8V">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="23.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="31"/>
                                                     <color key="backgroundColor" red="0.240958375" green="1" blue="0.2566261064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
                                                         <action selector="done" destination="DfB-ec-hgN" eventType="editingDidEndOnExit" id="oBa-Yt-xS3"/>

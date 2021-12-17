@@ -111,26 +111,49 @@ class ChecklistTableViewController: UITableViewController, AddItemViewController
         navigationController?.popViewController(animated: true)
     }
     
-    func addItemViewController(_ controller: AddItemVC, didFinishAdding item: ChecklistItem) {
+    func addItemViewController(
+        _ controller: AddItemVC,
+        didFinishAdding item: ChecklistItem
+    ) {
+        let newRowIndex = items.count
+        items.append(item)
+        
+        let indexPath = IndexPath(row: newRowIndex, section: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRows(at: indexPaths, with: .automatic)
         navigationController?.popViewController(animated: true)
+    
     }
     
     
 //  MARK: - Actions
     
     
-    @IBAction func addItem() {
-        let newRowIndex = items.count
-        //создаем экземпляр класса и добавляем его в модель данных - массив items
-        let item = ChecklistItem()
-        item.text = "I am a new row"
-        item.checked = true
-        items.append(item)
-
-        let indexPath = IndexPath(row: newRowIndex, section: 0)
-        let indexPaths = [indexPath]
-        tableView.insertRows(at: indexPaths, with: .automatic)
-
+//    @IBAction func addItem() {
+//        let newRowIndex = items.count
+//        //создаем экземпляр класса и добавляем его в модель данных - массив items
+//        let item = ChecklistItem()
+//        item.text = "I am a new row"
+//        item.checked = true
+//        items.append(item)
+//
+//        let indexPath = IndexPath(row: newRowIndex, section: 0)
+//        let indexPaths = [indexPath]
+//        tableView.insertRows(at: indexPaths, with: .automatic)
+//
+//    }
+    
+// MARK: - Navigation
+    
+    override func prepare(
+        for segue: UIStoryboardSegue,
+        sender: Any?
+    ) {
+        
+        if segue.identifier == "AddItem" {
+            let controller = segue.destination as! AddItemVC
+            controller.delegate = self
+        }
     }
     
 
