@@ -83,11 +83,16 @@ class ChecklistTableViewController: UITableViewController, AddItemViewController
 //        }
     // перепишем функцию на работу на прямую с элементами ChecklistItem
     
-    func configureCheckmark(for cell: UITableViewCell, with item: ChecklistItem) {
+    func configureCheckmark(
+        for cell: UITableViewCell,
+        with item: ChecklistItem
+    ) {
+        let label = cell.viewWithTag(1001) as! UILabel
+        
         if item.checked {
-           cell.accessoryType = .checkmark
-           } else {
-           cell.accessoryType = .none
+            label.text = "✓"
+        } else {
+            label.text = ""
         }
     }
     
@@ -125,6 +130,19 @@ class ChecklistTableViewController: UITableViewController, AddItemViewController
     
     }
     
+    func addItemViewController(
+      _ controller: AddItemVC,
+      didFinishEditing item: ChecklistItem
+    ) {
+      if let index = items.firstIndex(of: item) {
+        let indexPath = IndexPath(row: index, section: 0)
+        if let cell = tableView.cellForRow(at: indexPath) {
+          configureText(for: cell, with: item)
+        }
+      }
+      navigationController?.popViewController(animated: true)
+    }
+    
     
 //  MARK: - Actions
     
@@ -153,6 +171,14 @@ class ChecklistTableViewController: UITableViewController, AddItemViewController
         if segue.identifier == "AddItem" {
             let controller = segue.destination as! AddItemVC
             controller.delegate = self
+        } else if segue.identifier == "EditItem" {
+          let controller = segue.destination as! AddItemVC
+          controller.delegate = self
+          
+            if let indexPath = tableView.indexPath(
+                for: sender as! UITableViewCell) {
+                controller.itemToEdit = items[indexPath.row]
+            }
         }
     }
     

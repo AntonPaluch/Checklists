@@ -17,27 +17,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="ChecklistItem" id="AJh-WT-Alt">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="21"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="ChecklistItem" id="AJh-WT-Alt">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="27"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AJh-WT-Alt" id="OQF-hq-rAg">
-                                    <rect key="frame" x="0.0" y="0.0" width="373.5" height="21"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="356" height="27"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zp7-Cd-rdN">
-                                            <rect key="frame" x="20" y="0.0" width="353.5" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zp7-Cd-rdN">
+                                            <rect key="frame" x="46" y="0.0" width="310" height="27"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bp0-2O-NLK">
+                                            <rect key="frame" x="0.0" y="0.0" width="38" height="27"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="38" id="rgg-OU-u7U"/>
+                                            </constraints>
+                                            <string key="text" base64-UTF8="YES">
+FhbinJM
+</string>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="bp0-2O-NLK" firstAttribute="top" secondItem="OQF-hq-rAg" secondAttribute="top" id="2zJ-lt-HFU"/>
                                         <constraint firstItem="zp7-Cd-rdN" firstAttribute="top" secondItem="OQF-hq-rAg" secondAttribute="top" id="5w9-ap-vph"/>
-                                        <constraint firstItem="zp7-Cd-rdN" firstAttribute="leading" secondItem="OQF-hq-rAg" secondAttribute="leading" constant="20" symbolic="YES" id="6q0-rT-01y"/>
                                         <constraint firstAttribute="bottom" secondItem="zp7-Cd-rdN" secondAttribute="bottom" id="ACp-Ya-mIP"/>
+                                        <constraint firstItem="zp7-Cd-rdN" firstAttribute="leading" secondItem="bp0-2O-NLK" secondAttribute="trailing" constant="8" id="Bem-9h-d4W"/>
+                                        <constraint firstItem="bp0-2O-NLK" firstAttribute="leading" secondItem="OQF-hq-rAg" secondAttribute="leading" id="OcT-ta-CvG"/>
                                         <constraint firstAttribute="trailing" secondItem="zp7-Cd-rdN" secondAttribute="trailing" id="f4Y-2X-8AJ"/>
+                                        <constraint firstAttribute="bottom" secondItem="bp0-2O-NLK" secondAttribute="bottom" id="vND-8I-7N5"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="DfB-ec-hgN" kind="show" identifier="EditItem" trigger="accessoryAction" id="Uca-KU-Ug3"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -142,6 +160,9 @@
             <point key="canvasLocation" x="5.7971014492753632" y="85.714285714285708"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Uca-KU-Ug3"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
